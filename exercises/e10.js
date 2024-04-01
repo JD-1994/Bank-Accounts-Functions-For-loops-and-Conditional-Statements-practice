@@ -3,10 +3,16 @@
 // Array example: bankAccounts in /data/data.js
 // getClientsWithLetterInName(bankAccounts, 'e') => ['Kevin', 'Steven', ...]
 
-export function getClientsWithLetterInName(array, letter) {
-  // Your code goes here...
+import { bankAccounts } from './data/data.js';
 
+export function getClientsWithLetterInName(array, letter) {
+  return array.filter(account => account.name.toLowerCase().includes(letter.toLowerCase()))
+               .map(account => account.name);
 }
+
+// Test
+console.log(getClientsWithLetterInName(bankAccounts, 'e')); // Output: ['Susan', 'Morgan', 'Candy', 'Steven', 'Phel']
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-10"

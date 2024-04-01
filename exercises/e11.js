@@ -4,10 +4,21 @@
 // Array example: bankAccounts in /data/data.js
 // getAllWithdrawals(bankAccounts) => [3432, 0, 43242.34, 0, 23432]
 
-export function getAllWithdrawals(array) {
-  // Your code goes here...
+import { bankAccounts } from './data/data.js';
 
+export function getAllWithdrawals(array) {
+  return array.map(account => {
+    if (account.withdrawals) {
+      return account.withdrawals.reduce((sum, withdrawal) => sum + withdrawal, 0);
+    } else {
+      return 0;
+    }
+  });
 }
+
+// Test
+console.log(getAllWithdrawals(bankAccounts)); // Output: [300, 301, 2500, 0, 100]
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"

@@ -5,9 +5,15 @@
 // NOTE: You can NOT use the array.concat() method in your code
 
 export function concatArrays(arr1, arr2) {
-  // Your code goes here...
-
+  const concatenatedArray = [...arr1];
+  for (let i = 0; i < arr2.length; i++) {
+    concatenatedArray.push(arr2[i]);
+  }
+  return concatenatedArray;
 }
+
+// Test
+console.log(concatArrays(['d', 'r', 'a'], ['f', 'y'])); // Output: ['d', 'r', 'a', 'f', 'y']
 
 
 

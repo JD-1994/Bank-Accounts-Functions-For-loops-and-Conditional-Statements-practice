@@ -9,9 +9,16 @@
  * */
 
 export function getAverage(array) {
-  // Your code goes here...
+  if (array.length === 0) {
+    return 0; // Return 0 for empty arrays
+  }
 
+  const sum = array.reduce((acc, num) => acc + num, 0);
+  return sum / array.length;
 }
+
+// Test
+console.log(getAverage([22, 45, 4, 65])); // Output: 34
 
 
 /** 
@@ -22,9 +29,20 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  // Your code goes here...
-
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charAt(i);
+    if (!isNaN(parseInt(char))) {
+      sum += parseInt(char);
+    }
+  }
+  return sum;
 }
+
+// Test
+console.log(getStringSum("GH2U87A")); // Output: 17
+console.log(getStringSum("GHIUJUHSG")); // Output: 0
+
 
 
 // === TEST YOURSELF ===

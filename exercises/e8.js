@@ -4,10 +4,18 @@
 // Array example: bankAccounts in /data/data.js
 // getClientWithGreatestBalance(bankAccounts) => [{ name: 'SomeName', balance: 32, ... }]
 
-export function getClientWithGreatestBalance(array) {
-  // Your code goes here...
+import { bankAccounts } from './data/data.js';
 
+export function getClientWithGreatestBalance(array) {
+  if (array.length === 0) {
+    return [];
+  }
+  const maxBalance = Math.max(...array.map(account => account.balance));
+  return array.filter(account => account.balance === maxBalance);
 }
+
+// Test
+console.log(getClientWithGreatestBalance(bankAccounts)); // Output: [{ id: 3, name: 'Joshua', balance: 18456.57, deposits: [4000, 5000, 6000, 9200, 256.57], withdrawals: [1500, 1400, 1500, 1500] }]
 
 
 

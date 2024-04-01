@@ -6,9 +6,26 @@
 // NOTE: You can NOT use the array.flat() method in your code
 
 export function flatArrays(array) {
-  // Your code goes here...
-
+  const flattenedArray = [];
+  
+  function flatten(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        flatten(arr[i]);
+      } else {
+        flattenedArray.push(arr[i]);
+      }
+    }
+  }
+  
+  flatten(array);
+  
+  return flattenedArray;
 }
+
+// Test
+console.log(flatArrays([['d', 'r'], 'z', 'b', ['f', 'y']])); // Output: ['d', 'r', 'z', 'b', 'f', 'y']
+
 
 
 

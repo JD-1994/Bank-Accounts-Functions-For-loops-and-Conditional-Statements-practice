@@ -5,10 +5,19 @@
 // Array example: bankAccounts in /data/data.js
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
-export function getClientsWithWrongBalance(array) {
-  // Your code goes here...
+import { bankAccounts } from './data/data.js';
 
+export function getClientsWithWrongBalance(array) {
+  return array.filter(account => {
+    const totalDeposits = account.deposits ? account.deposits.reduce((acc, deposit) => acc + deposit, 0) : 0;
+    const totalWithdrawals = account.withdrawals ? account.withdrawals.reduce((acc, withdrawal) => acc + withdrawal, 0) : 0;
+    const calculatedBalance = totalDeposits - totalWithdrawals;
+    return calculatedBalance !== account.balance;
+  });
 }
+
+// Test
+console.log(getClientsWithWrongBalance(bankAccounts));
 
 
 

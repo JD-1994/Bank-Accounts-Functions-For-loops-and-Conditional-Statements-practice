@@ -4,10 +4,20 @@
 // Array example: bankAccounts in /data/data.js
 // getAllDepositsGreaterThanOneHundred(bankAccounts) => [3432, 43242.34, 23432]
 
-export function getAllDepositsGreaterThanOneHundred(array) {
-  // Your code goes here...
+import { bankAccounts } from './data/data.js';
 
+export function getAllDepositsGreaterThanOneHundred(array) {
+  return array.flatMap(account => {
+    if (account.deposits) {
+      return account.deposits.filter(deposit => deposit > 100);
+    } else {
+      return [];
+    }
+  });
 }
+
+// Test
+console.log(getAllDepositsGreaterThanOneHundred(bankAccounts)); // Output: [150, 221, 1100, 4000, 5000, 6000, 9200]
 
 
 

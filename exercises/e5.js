@@ -4,12 +4,14 @@
 // Array example: bankAccounts in /data/data.js
 // getAllClientNames(bankAccounts) => ['Kevin', 'Spenser']
 
-export function getAllClientNames(array) {
-  // Your code goes here...
+import { bankAccounts } from './data/data.js';
 
+export function getAllClientNames(array) {
+  return array.map(account => account.name);
 }
 
-
+// Test
+console.log(getAllClientNames(bankAccounts)); // Output: ['Susan', 'Morgan', 'Joshua', 'Candy', 'Phil']
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-5"
