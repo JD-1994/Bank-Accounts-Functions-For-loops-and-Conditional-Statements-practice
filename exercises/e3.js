@@ -9,12 +9,22 @@
  * */
 
 export function getAverage(array) {
+  // Check if the array is empty
   if (array.length === 0) {
-    return 0; // Return 0 for empty arrays
+    return 0;
   }
 
-  const sum = array.reduce((acc, num) => acc + num, 0);
-  return sum / array.length;
+  let sum = 0;
+
+  // Iterate through the array and add each number to the sum
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+
+  // Calculate the average by dividing the sum by the number of elements
+  const average = sum / array.length;
+
+  return average;
 }
 
 // Test

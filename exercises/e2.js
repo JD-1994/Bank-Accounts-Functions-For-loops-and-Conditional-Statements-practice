@@ -5,12 +5,10 @@
 export function getNumbersWithSquareRoots(max) {
   // Your code goes here...
   const numbers = [];
-  for (let i = 0; i <= max; i++) {
-    const squareRoot = Math.sqrt(i);
-    if (Number.isInteger(squareRoot)) {
-      numbers.push(i);
+  for (let i = 0; i*i <= max; i++) {
+    numbers.push(i*i);
     }
-  }
+  
   return numbers;
 }
 
