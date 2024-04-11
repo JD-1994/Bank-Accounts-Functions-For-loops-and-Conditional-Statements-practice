@@ -6,9 +6,15 @@
 import { bankAccounts } from './data/data.js';
 
 export function getClientWithNoMoney(array) {
-  return array
-    .filter(account => account.balance === 0)
-    .map(account => account.name);
+  const clientsWithNoMoney = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].balance === 0) {
+      clientsWithNoMoney.push(array[i].name);
+    }
+  }
+
+  return clientsWithNoMoney;
 }
 
 // Test

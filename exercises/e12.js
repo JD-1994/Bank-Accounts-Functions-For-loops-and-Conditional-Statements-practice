@@ -7,14 +7,19 @@
 import { bankAccounts } from './data/data.js';
 
 export function getAllDepositsGreaterThanOneHundred(array) {
-  return array.flatMap(account => {
-    if (account.deposits) {
-      return account.deposits.filter(deposit => deposit > 100);
-    } else {
-      return [];
+  const depositsGreaterThanOneHundred = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].deposits) {
+      for (let j = 0; j < array[i].deposits.length; j++) {
+        if (array[i].deposits[j] > 100) {
+          depositsGreaterThanOneHundred.push(array[i].deposits[j]);
+        }
+      }
     }
-  });
+  }
+  return depositsGreaterThanOneHundred;
 }
+
 
 // Test
 console.log(getAllDepositsGreaterThanOneHundred(bankAccounts)); // Output: [150, 221, 1100, 4000, 5000, 6000, 9200]

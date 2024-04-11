@@ -8,20 +8,19 @@
 export function flatArrays(array) {
   const flattenedArray = [];
   
-  function flatten(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      if (Array.isArray(arr[i])) {
-        flatten(arr[i]);
-      } else {
-        flattenedArray.push(arr[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      for (let j = 0; j < array[i].length; j++) {
+        flattenedArray.push(array[i][j]);
       }
+    } else {
+      flattenedArray.push(array[i]);
     }
   }
   
-  flatten(array);
-  
   return flattenedArray;
 }
+
 
 // Test
 console.log(flatArrays([['d', 'r'], 'z', 'b', ['f', 'y']])); // Output: ['d', 'r', 'z', 'b', 'f', 'y']

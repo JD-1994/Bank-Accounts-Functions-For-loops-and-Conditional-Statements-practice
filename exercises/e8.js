@@ -10,9 +10,20 @@ export function getClientWithGreatestBalance(array) {
   if (array.length === 0) {
     return [];
   }
-  const maxBalance = Math.max(...array.map(account => account.balance));
-  return array.filter(account => account.balance === maxBalance);
+
+  let accountsWithGreatestBalance = [array[0]];
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i].balance > accountsWithGreatestBalance[0].balance) {
+      accountsWithGreatestBalance = [array[i]];
+    } else if (array[i].balance === accountsWithGreatestBalance[0].balance) {
+      accountsWithGreatestBalance.push(array[i]);
+    }
+  }
+
+  return accountsWithGreatestBalance;
 }
+
 
 // Test
 console.log(getClientWithGreatestBalance(bankAccounts)); // Output: [{ id: 3, name: 'Joshua', balance: 18456.57, deposits: [4000, 5000, 6000, 9200, 256.57], withdrawals: [1500, 1400, 1500, 1500] }]

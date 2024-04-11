@@ -6,8 +6,14 @@
 import { bankAccounts } from './data/data.js';
 
 export function getClientsWithLetterInName(array, letter) {
-  return array.filter(account => account.name.toLowerCase().includes(letter.toLowerCase()))
-               .map(account => account.name);
+  const clientsWithLetterInName = [];
+  for (let i = 0; i < array.length; i++) {
+    const name = array[i].name.toLowerCase();
+    if (name.includes(letter.toLowerCase())) {
+      clientsWithLetterInName.push(array[i].name);
+    }
+  }
+  return clientsWithLetterInName;
 }
 
 // Test

@@ -7,7 +7,13 @@
 import { bankAccounts } from './data/data.js';
 
 export function getClientsWithBalanceOverOneHundred(array) {
-  return array.filter(account => account.balance > 100);
+  const clientsWithBalanceOverOneHundred = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].balance > 100) {
+      clientsWithBalanceOverOneHundred.push(array[i]);
+    }
+  }
+  return clientsWithBalanceOverOneHundred;
 }
 
 // Test
