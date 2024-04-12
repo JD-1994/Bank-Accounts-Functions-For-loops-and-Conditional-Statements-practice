@@ -9,12 +9,20 @@ export function getClientsWithLetterInName(array, letter) {
   const clientsWithLetterInName = [];
   for (let i = 0; i < array.length; i++) {
     const name = array[i].name.toLowerCase();
-    if (name.includes(letter.toLowerCase())) {
+    let found = false;
+    for (let j = 0; j < name.length; j++) {
+      if (name[j] === letter.toLowerCase()) {
+        found = true;
+        break;
+      }
+    }
+    if (found) {
       clientsWithLetterInName.push(array[i].name);
     }
   }
   return clientsWithLetterInName;
 }
+
 
 // Test
 console.log(getClientsWithLetterInName(bankAccounts, 'e')); // Output: ['Susan', 'Morgan', 'Candy', 'Steven', 'Phel']
